@@ -664,10 +664,214 @@ footer {
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+/* Announcement Banner */
 .announcement-banner {
-  background-color: var(--success);
-  color: white;
+  background: linear-gradient(135deg, var(--warning) 0%, var(--secondary) 100%);
+  color: var(--secondary-text);
+  padding: 12px 20px;
+  margin: 10px 15px 0;
+  border-radius: 8px;
   text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Announcements Management Modal */
+.large-modal {
+  max-width: 900px;
+  width: 90%;
+}
+
+.announcements-manager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .announcements-manager {
+    grid-template-columns: 1fr;
+  }
+}
+
+.announcement-form-section,
+.announcements-list-section {
+  background-color: var(--background);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.announcement-form-section h4,
+.announcements-list-section h4 {
+  margin-bottom: 15px;
+  color: var(--primary);
+  font-size: 1rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.secondary-button {
+  background-color: var(--text-secondary);
+  color: white;
+}
+
+.secondary-button:hover {
+  background-color: var(--text-primary);
+}
+
+#announcements-list {
+  max-height: 500px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.announcement-item {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
   padding: 15px;
-  font-weight: bold;
+  transition: box-shadow 0.2s;
+}
+
+.announcement-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.announcement-item-message {
+  flex: 1;
+  margin-right: 10px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.announcement-item-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.announcement-item-actions button {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.edit-announcement-btn {
+  background-color: var(--info);
+  color: white;
+}
+
+.edit-announcement-btn:hover {
+  background-color: #0a4552;
+}
+
+.delete-announcement-btn {
+  background-color: var(--error);
+  color: white;
+}
+
+.delete-announcement-btn:hover {
+  background-color: #a02020;
+}
+
+.announcement-item-dates {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.announcement-item-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.announcement-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.status-active {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.status-scheduled {
+  background-color: var(--info-light);
+  color: var(--info);
+}
+
+.status-expired {
+  background-color: var(--error-light);
+  color: var(--error);
+}
+
+#manage-announcements-button {
+  padding: 4px 10px;
+  font-size: 1.2rem;
 }
